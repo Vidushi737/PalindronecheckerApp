@@ -20,32 +20,36 @@
  * @author Vidushi
  * @version 2.0
  */
-
+import java.util.*;
 public class PalindronecheckerApp {
 
-    /**
-     * Application entry point for UC2.
-     *
-     * @param args Command-line arguments
-     */
-    public static void main(String[] args) {
 
-        System.out.print("Input text: ");
-        String input = "madam"; // Hardcoded string to check
+        /**
+         * Application entry point for UC3.
+         *
+         * @param args Command-line arguments
+         */
 
-        boolean isPalindrome = true;  // Assume true until proven otherwise
 
-        // Loop only till half the string length
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                isPalindrome = false;
-                break;  // Exit early if mismatch found
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Input text: ");
+            String input = sc.nextLine();
+
+            // Build reversed string
+            String reversed = "";
+            for (int i = input.length() - 1; i >= 0; i--) {
+                reversed += input.charAt(i);
             }
-        }
 
-        // Output result
-        System.out.println("Input text: " + input);
-        System.out.println("is it palindrome? :" + isPalindrome);
+            // Check palindrome
+            boolean isPalindrome = input.equals(reversed);
+
+            // Output reversed text and palindrome result
+            System.out.println("Reversed text: " + reversed);
+            System.out.println("Is it palindrome: " + isPalindrome);
+        }
     }
-}
 
